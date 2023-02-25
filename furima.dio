@@ -1,0 +1,18 @@
+<mxfile host="65bd71144e">
+    <diagram id="LweubJhgmEy8dywCfx2C" name="ページ1">
+        <mxGraphModel dx="1304" dy="931" grid="1" gridSize="11" guides="1" tooltips="1" connect="1" arrows="1" fold="0" page="1" pageScale="1" pageWidth="2000" pageHeight="2000" background="#666666" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="z3XP0KzVbNAPSuxoFfzw" name="ページ2">
+        <mxGraphModel dx="978" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
