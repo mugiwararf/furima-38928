@@ -5,11 +5,12 @@
 |-------------------|-------|-----------|
 | nickname          |string |null: false|
 | email             |string |null: false|
+| encrypted_password|string |null: false|
 | first_name        |string |null: false|
 | last_name         |string |null: false|
 | first_kana        |string |null: false|
 | last_kana         |string |null: false|
-| birthday          |string |null: false|
+| birthday          |date   |null: false|
 
 - has_many :items
 - has_many :orders
@@ -21,16 +22,14 @@
 | user              |references |null: false, foreign_key: true|
 | name              |string     |null: false                   |
 | explanation       |text       |null: false                   |
-| Category_id       |integer    |null: false                   | 
+| category_id       |integer    |null: false                   | 
 | situation_id      |integer    |null: false                   |
-| Shipping_charge_id|integer    |null: false                   |
+| shipping_charge_id|integer    |null: false                   |
 | shipping_area_id  |integer    |null: false                   |
-| shipping_days_id  |integer    |null: false                   |
+| shipping_day_id   |integer    |null: false                   |
 | price             |integer    |null: false                   |
-
-- has_many :orders
+- has_one :order
 - belongs_to :user
-- belongs_to :order
 
 ##ordersテーブル
 
@@ -41,7 +40,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :payments
+- has_one :payment
 
 ##paymentsテーブル
 
@@ -55,5 +54,5 @@
 | building_name     |string     |                              |
 | telephone_number  |string     |null: false                   |
 
-- belongs_to orderテーブル
+- belongs_to order
 
