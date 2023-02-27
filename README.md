@@ -1,49 +1,47 @@
 
-##userテーブル
+##usersテーブル
 
 |Column             |Type   |Options    |
 |-------------------|-------|-----------|
 | nickname          |string |null: false|
 | email             |string |null: false|
-| passwold          |string |null: false|
-| encrypted_password|string |null: false|
-| fast_name         |string |null: false|
+| first_name        |string |null: false|
 | last_name         |string |null: false|
-| fast_kana         |string |null: false|
+| first_kana        |string |null: false|
 | last_kana         |string |null: false|
 | birthday          |string |null: false|
 
-- has_many :itemsテーブル
-- has_many :ordersテーブル
+- has_many :items
+- has_many :orders
 
-##itemテーブル
+##itemsテーブル
 
 |Column             |Type       |Options                       |
 |-------------------|-----------|------------------------------|
 | user              |references |null: false, foreign_key: true|
 | name              |string     |null: false                   |
 | explanation       |text       |null: false                   |
-| Category          |integer    |null: false                   | 
-| situation         |integer    |null: false                   |
-| Shipping charge   |integer    |null: false                   |
-| shipping area     |integer    |null: false                   |
-| shipping days     |integer    |null: false                   |
+| Category_id       |integer    |null: false                   | 
+| situation_id      |integer    |null: false                   |
+| Shipping_charge_id|integer    |null: false                   |
+| shipping_area_id  |integer    |null: false                   |
+| shipping_days_id  |integer    |null: false                   |
 | price             |integer    |null: false                   |
 
-- has_many :ordersテーブル
-- belongs_to :userテーブル
-- belongs_to :orderテーブル
+- has_many :orders
+- belongs_to :user
+- belongs_to :order
 
-##orderテーブル
+##ordersテーブル
 
 |Column             |Type       |Options                       |
 |-------------------|-----------|------------------------------|
 | user              |references |null: false, foreign_key: true|
 | item              |references |null: false, foreign_key: true|
 
-- belongs_to :userテーブル
-- belongs_to :itemテーブル
-- has_one :paymentsテーブル
+- belongs_to :user
+- belongs_to :item
+- has_one :payments
 
 ##paymentsテーブル
 
@@ -51,11 +49,11 @@
 |-------------------|-----------|------------------------------|
 | order             |references |null: false, foreign_key: true|
 | postal_code       |string     |null: false                   |
-| prefecture        |integer    |null: false                   |
+|  shipping_area_id |integer    |null: false                   |
 | city              |string     |null: false                   | 
 | house_number      |string     |null: false                   |
-| building_name     |string     |null: false                   |
-| telephone number  |string     |null: false                   |
+| building_name     |string     |                              |
+| telephone_number  |string     |null: false                   |
 
 - belongs_to orderテーブル
 
