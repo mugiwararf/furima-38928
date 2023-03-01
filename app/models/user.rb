@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   # ひらがな カナ 漢字
-  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ--龥々]+\z/ }
-  validates :last_name, presence: true,  format: { with: /\A[ぁ-んァ-ヶ--龥々]+\z/ }
+  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ–-龥々]+\z/ }
+  validates :last_name, presence: true,  format: { with: /\A[ぁ-んァ-ヶ–-龥々]+\z/ }
   # カタカナ
   validates :first_kana,    presence: true, format: { with: /\A[ァ-ヶー－]+\z/  }
   validates :last_kana,     presence: true, format: { with: /\A[ァ-ヶー－]+\z/  }
