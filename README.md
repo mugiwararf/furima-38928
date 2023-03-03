@@ -28,6 +28,7 @@
 | shipping_area_id  |integer    |null: false                   |
 | shipping_day_id   |integer    |null: false                   |
 | price             |integer    |null: false                   |
+
 - has_one :order
 - belongs_to :user
 
