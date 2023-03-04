@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, expect: [:index]
   def index
-    #  @items = Item.includes(:user).order("created_at DESC")ss
+     @items = Item.includes(:user).order("created_at DESC")
   end
 
   def new
