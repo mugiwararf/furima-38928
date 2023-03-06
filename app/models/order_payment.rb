@@ -16,7 +16,7 @@ class OrderPayment
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
 
-    Payment.create(user_id: user_id, postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, house_number: house_number, building_name: building_name, telephone_number: telephone_number,)
+    Payment.create(order_id: order_id, postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, house_number: house_number, building_name: building_name, telephone_number: telephone_number,)
   
   end
 
