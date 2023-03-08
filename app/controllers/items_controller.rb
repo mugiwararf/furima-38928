@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :order_item, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -53,5 +54,11 @@ class ItemsController < ApplicationController
 
   def contributor_confirmation
     redirect_to root_path unless current_user == @item.user
+  end
+
+  def order_item
+    return unless @item.user_id != current_user.id || !@item.order.nil?
+
+    redirect_to root_path
   end
 end
