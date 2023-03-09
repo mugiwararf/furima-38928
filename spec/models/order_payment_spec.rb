@@ -37,6 +37,11 @@ RSpec.describe OrderPayment, type: :model do
       @order_payment.valid?
       expect(@order_payment.errors.full_messages).to include("Postal code can't be blank")
     end
+    it '郵便番号にハイフンがなければ登録できない' do
+      @order_payment.postal_code = '1234567'
+      @order_payment.valid?
+      expect(@order_payment.errors.full_messages).to include("Postal code is invalid")
+    end
 
     it '発送先の地域が空では登録できない' do
       @order_payment.shipping_area_id = 1
@@ -62,14 +67,14 @@ RSpec.describe OrderPayment, type: :model do
       expect(@order_payment.errors.full_messages).to include("Telephone number can't be blank")
     end
     
-    it '電話番号が10以下だと登録できない' do
+    it '電話番号が9以下だと登録できない' do
       @order_payment.telephone_number = '090123456'
       @order_payment.valid?
       expect(@order_payment.errors.full_messages).to include("Telephone number is invalid")
     end
 
 
-    it '電話番号が11以上だと登録できない' do
+    it '電話番号が12以上だと登録できない' do
       @order_payment.telephone_number = '090123456789'
       @order_payment.valid?
       expect(@order_payment.errors.full_messages).to include('Telephone number is invalid')
