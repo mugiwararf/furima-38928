@@ -5,15 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :orders
 
-  validates :nickname, presence: true
-  # ひらがな カナ 漢字
-  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/ }
-  validates :last_name, presence: true,  format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/ }
-  # カタカナ
-  validates :first_kana,    presence: true, format: { with: /\A[ァ-ヶー－]+\z/  }
-  validates :last_kana,     presence: true, format: { with: /\A[ァ-ヶー－]+\z/  }
-  validates :birthday, presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :first_name, format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/ }
+    validates :last_name,  format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/ }
+    # カタカナ
+    validates :first_kana, format: { with: /\A[ァ-ヶー－]+\z/  }
+    validates :last_kana,  format: { with: /\A[ァ-ヶー－]+\z/  }
+    validates :birthday
+  end
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
+  validates_format_of :password, with: PASSWORD_REGEX
 end
