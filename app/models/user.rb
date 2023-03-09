@@ -9,11 +9,11 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :first_name, format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/ }
-    validates :last_name,  format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/ }
+    validates :first_name, format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/ ,allow_blank: true}
+    validates :last_name,  format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/, allow_blank: true }
     # カタカナ
-    validates :first_kana, format: { with: /\A[ァ-ヶー－]+\z/  }
-    validates :last_kana,  format: { with: /\A[ァ-ヶー－]+\z/  }
+    validates :first_kana, format: { with: /\A[ァ-ヶー－]+\z/,allow_blank: true  }
+    validates :last_kana,  format: { with: /\A[ァ-ヶー－]+\z/,allow_blank: true  }
     validates :birthday
   end
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
