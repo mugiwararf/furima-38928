@@ -8,11 +8,11 @@ class OrderPayment
     validates   :item_id
     validates   :token
 
-    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/,allow_blank: true }
     validates :shipping_area_id, numericality: { other_than: 1 }
     validates :city
     validates :house_number
-    validates :telephone_number, format: { with: /\A[0-9]{10,11}\z/ }
+    validates :telephone_number, format: { with: /\A[0-9]{10,11}\z/,allow_blank: true }
   end
 
   def save
