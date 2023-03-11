@@ -24,7 +24,7 @@ class Item < ApplicationRecord
     validates :image
   end
   # active hush
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: {allow_blank: true, other_than: 1 } do
     validates :category_id
     validates :situation_id
     validates :shipping_charge_id
